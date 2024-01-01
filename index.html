@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>传奇大世界-空间站人员</title>
+    <link rel="stylesheet" href="./css/thank.css">
+    <link rel="stylesheet" href="./css/nav.css">
+    <link rel="icon" href="./assets/空间站icon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="//at.alicdn.com/t/c/font_4271778_4ofmios5k5x.css">
+    <script src=".\js\unpkg.com_vue@3.3.4_dist_vue.global.js"></script>
+</head>
+
+
+<body>
+    <div id="app">
+        <div class="bg"></div>
+        <div class="nav">
+            <div class="logo"><img src="./assets//传奇大世界LOGO.png" alt=""></div>
+            <ul>
+                <!-- <li><a href="/bulletin.html"><i class="iconfont  icon-quanzi"></i><span>公告</span></a></li> -->
+                <li ><a href="/activity.html"><i class="iconfont  icon-paixu"></i><span>活动</span></a></li>
+                <li><a href="/商城.html"><i class="iconfont  icon-qianbao"></i><span>商城</span></a></li>
+                <!-- <li><a href="/contest.html"><i class="iconfont  icon-qushi"></i><span>竞速</span></a></li> -->
+                <li class="active"><a href="/index.html"><i class="iconfont  icon-pinglun"></i><span>传奇伙伴</span></a></li>
+            </ul>   
+        </div>
+    
+        <div id="pageCenter">
+            <div class="title">
+                <!-- <p class="logo" style="width: 50%;"><img src="./assets//死亡空间站.png" alt=""></p> -->
+                <p class="main">{{memberRant.length}}位小伙伴支持</p>
+                <!-- <p class="other">联系乌鸦在页面上留言</p> -->
+                <!-- <p class="other">历史赞助每人可联系乌鸦白嫖乌鸦T恤一件(空间站体恤,成本15~25)</p> -->
+            </div>
+        </div>
+        <div id="List">
+            <ul class="development">
+                <li v-for="item in development" :id="item.qq">
+                    <img class="header" :src="'https://q4.qlogo.cn/g?b=qq&nk='+ item.qq + '&s=140'" alt="" class="personalMaster">
+                    <div class="info">
+                        <p class="userName">{{item.name}}</p>
+                        <!-- <p class="qq">{{item.qq}}</p> -->
+                        <!-- <p class="money">历史{{item.quota}}赞助</p> -->
+                    </div>
+                </li>
+            </ul>
+            <!-- <ul class="mini">
+                <li v-for="item in memberRant">
+                    <a :href="'#'+item.qq">
+                        <img class="header" :src="'https://q4.qlogo.cn/g?b=qq&nk='+ item.qq + '&s=140'" alt="" class="personalMaster">
+                    </a>
+                </li>
+            </ul> -->
+            <ul class="block">
+                <li v-for="item in memberRant" :id="item.qq">
+                    <img class="header" :src="'https://q4.qlogo.cn/g?b=qq&nk='+ item.qq + '&s=140'" alt="" class="personalMaster">
+                    <div class="info">
+                        <p class="userName">{{item.name}}</p>
+                        <p class="qq">{{item.qq}}</p>
+                        <!-- <p class="money">历史{{item.quota}}赞助</p> -->
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        let subMoney = 0;
+        let development = [
+            {name: "冷漠乌鸦",qq: 3537168410,date: "改造人"},
+            {name: "Eric",qq: 935604751,date: "原作者"},
+            // {name: "都天黑了",qq: 2420233649,date: "制作人"},
+            // {name: "OB",qq: 864887253,date: "制作人"},
+            // {name: "黑夜涵",qq: 1031777634,date: "制作人"},
+            // {name: "YohO",qq: 358144421,date: "制作人"},
+            // {name: "蔚蓝星海",qq: 460997396,date: "制作人"},
+        ]
+        let memberMoney = [
+            {name: "归不归",qq: 1545971270,date: "1-2",quota: 4000},
+            {name: "暗影下的魂",qq: 2547654131,date: "1-2",quota: 1000},
+            {name: "星河",qq: 3459390190,date: "1-2",quota: 100},
+            {name: "安 生💋",qq: 1029771773,date: "1-2",quota: 100},
+            {name: "包子",qq: 3262039107,date: "1-2",quota: 100},
+            {name: "漓大人",qq: 365449136,date: "1-2",quota: 3000},
+            {name: "a",qq: 441384602,date: "1-2",quota: 100},
+            {name: "希尔",qq: 861973601,date: "1-2",quota: 3000},
+
+        ]
+
+        let memberRant = [];
+        // 合并记录至QQ为单位下的数据
+        function initRant(){
+            // 检索所有记录
+            for (let index = 0; index < memberMoney.length; index++) {
+                let member = memberMoney[index];
+                let isExist = false;
+                // 检索现有排行是否已经有记录
+                for (let j = 0; j < memberRant.length; j++) {
+                    let rant = memberRant[j];
+                    if(rant.qq == member.qq){
+                        rant.quota += member.quota;
+                        isExist = true;
+                        break;
+                    }
+                }
+                if(!isExist){
+                    memberRant.push(member);
+                }
+            }
+        }
+        // 对赞助数据进行排序
+        function initRantSort(){
+            memberRant = memberRant.sort(function(a,b){
+                return  b.quota - a.quota;
+            })
+        }
+
+        const { createApp, ref } = Vue
+        createApp({
+        setup() {
+            const message = ref('Hello vue!');
+            initRant();
+            initRantSort();
+            console.log(memberRant);
+            return {
+                    memberRant,
+                    development
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+
+</html>

@@ -6,17 +6,6 @@ body{
     width:100vw;
     min-height: 100vh;
     background:#000;
-    // .activityBackground{
-    //     position: fixed;
-    //     left:0;
-    //     bottom:0;
-    //     min-height: 100vh;
-    //     min-width: 100vw;
-    //     z-index:-99;
-    //     opacity: 0.4;
-    //     filter:blur(5px);
-    //     background:  url(https://sc2.nosdn.127.net/1/style/v4/common/main_bg_v4.jpg) no-repeat fixed center top;
-    // }
     .bg{
         width: 100%;
         height: 100%;
@@ -106,9 +95,6 @@ body{
     max-width: 1200px;
     padding-bottom:300px;
     margin:0 auto;
-    // background:#ffffff;
-    // overflow: hidden;
-    // box-shadow: 0px 0px 24px #0732bf;
     position: relative;
     .List_image{
         width:100%;
@@ -123,7 +109,6 @@ body{
     }
 
     ul{
-        // padding:10px 10px;
         position: relative;
         z-index:99;
         list-style: none;
@@ -132,18 +117,16 @@ body{
         align-items: center;
         justify-content: center;
         flex-wrap: wrap;
-        // justify-content: space-between;
         li{
             
-            // background:url(https://di.res.netease.com/pc/fab/20230914180359/img/part5_img1_f7c5853.jpg) center center no-repeat;
-            // background-size:100% 100% ;
-            // opacity: 0.5;
             background-color: rgba(113, 86, 4, 0.746);
             box-sizing: border-box;
             width:500px;
             // height:20%;
+            min-height:220px;
             height:220px;
-            // flex-grow: 1;
+            max-height: 300px;
+            flex-grow: 1;
             // margin:10px;
             border-radius: 6px;
             position: relative;
@@ -156,14 +139,6 @@ body{
             flex-direction: row;
             align-items: center;
             justify-content: space-around;
-            // border:3px solid #0996e296;
-            // border-top: none;
-            // border-bottom:5px solid #0996e2;
-            // background:#021b389f;
-            // box-shadow:inset 0px -12px 24px #020826 ;
-            // &.ur{
-            //     animation: urInfinate 1.8s infinite forwards ;
-            // }
             box-shadow: 3px 3px 24px #000;
             &:hover{
                 z-index: 9999;
@@ -177,19 +152,19 @@ body{
                 position: absolute;
                 left:0;
                 top:0;
-                background:url(https://di.res.netease.com/pc/fab/20230914180359/img/part5_img1_f7c5853.jpg) center center no-repeat;
+                background:url(./../assets/images/bgImage.jpg) center center no-repeat;
                 background-size:100% 100% ;
                 opacity: 0.5;
                 filter: blur(2px);
             }
             .li_bg2{
-                z-index: 1;
+                z-index: 9999;
                 width:100%;
                 height:100%;
                 position: absolute;
                 left:0;
                 top:0;
-                background:url(https://di.res.netease.com/pc/fab/20230914180359/img/swiper_img_k_e421e65.png) center center no-repeat;
+                background:url(./../assets/images/border.webp) center center no-repeat;
                 background-size:100% 100% ;
             }
             // &:hover{
@@ -311,14 +286,14 @@ body{
                     text-decoration:line-through;
                     padding:14px 24px;
                     padding-bottom: 18px;
-                    background:url(https://nie.res.netease.com/di/ugc/pc/zt/20220310190000/img/tag_item_bg_87c328c5.png) no-repeat center center;
+                    background:url(./../assets/images/buttonNormal.png) no-repeat center center;
                     background-size: 100% 100%;
                 }
                 .price2{
                     font-size:16px;
                     padding:14px 24px;
                     padding-bottom: 18px;
-                    background:url(https://nie.res.netease.com/di/ugc/pc/zt/20220310190000/img/tag_item_bg_a_00638f52.png) no-repeat center center;
+                    background:url(./../assets/images/buttonActive.png) no-repeat center center;
                     background-size: 100% 100%;
 
                 }

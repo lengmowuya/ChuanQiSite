@@ -112,7 +112,10 @@ body .bg {
   background-color: rgba(113, 86, 4, 0.746);
   box-sizing: border-box;
   width: 500px;
+  min-height: 220px;
   height: 220px;
+  max-height: 300px;
+  flex-grow: 1;
   border-radius: 6px;
   position: relative;
   transition: all 0.35s;
@@ -136,19 +139,19 @@ body .bg {
   position: absolute;
   left: 0;
   top: 0;
-  background: url(https://di.res.netease.com/pc/fab/20230914180359/img/part5_img1_f7c5853.jpg) center center no-repeat;
+  background: url(../assets/images/bgImage.jpg) center center no-repeat;
   background-size: 100% 100% ;
   opacity: 0.5;
   filter: blur(2px);
 }
 #List ul li .li_bg2 {
-  z-index: 1;
+  z-index: 9999;
   width: 100%;
   height: 100%;
   position: absolute;
   left: 0;
   top: 0;
-  background: url(https://di.res.netease.com/pc/fab/20230914180359/img/swiper_img_k_e421e65.png) center center no-repeat;
+  background: url(../assets/images/border.webp) center center no-repeat;
   background-size: 100% 100% ;
 }
 #List ul li .backgroundFilter {
@@ -215,14 +218,14 @@ body .bg {
   text-decoration: line-through;
   padding: 14px 24px;
   padding-bottom: 18px;
-  background: url(https://nie.res.netease.com/di/ugc/pc/zt/20220310190000/img/tag_item_bg_87c328c5.png) no-repeat center center;
+  background: url(../assets/images/buttonNormal.png) no-repeat center center;
   background-size: 100% 100%;
 }
 #List ul li .price .price2 {
   font-size: 16px;
   padding: 14px 24px;
   padding-bottom: 18px;
-  background: url(https://nie.res.netease.com/di/ugc/pc/zt/20220310190000/img/tag_item_bg_a_00638f52.png) no-repeat center center;
+  background: url(../assets/images/buttonActive.png) no-repeat center center;
   background-size: 100% 100%;
 }
 #List ul li .index {
